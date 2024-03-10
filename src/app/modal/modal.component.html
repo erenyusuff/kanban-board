@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h5 class="modal-title text-center" id="exampleModalLabel"><h1>Create Product</h1></h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="modalRef.close()"
+  ></button>
+</div>
+<div class="modal-body"><div style=" width: 470px">
+  <form [formGroup]="taskForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        formControlName="description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="tag" class="form-label">Tag</label>
+      <input
+        type="text"
+        class="form-control"
+        id="tag"
+        formControlName="tag"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="listId" class="form-label">Select A list</label>
+      <input
+        type="text"
+        class="form-control"
+        id="listId"
+        formControlName="listId"
+      />
+    </div>
+  </form>
+</div></div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+    Close
+  </button>
+  <button type="button" class="btn btn-primary" (click)="create(); modalRef.close()">Save changes</button>
+</div>
