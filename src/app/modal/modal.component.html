@@ -7,46 +7,57 @@
     (click)="modalRef.close()"
   ></button>
 </div>
-<div class="modal-body"><div style=" width: 470px">
-  <form [formGroup]="taskForm">
-    <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        formControlName="title"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="description" class="form-label">Description</label>
-      <input
-        type="text"
-        class="form-control"
-        id="description"
-        formControlName="description"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="tag" class="form-label">Tag</label>
-      <input
-        type="text"
-        class="form-control"
-        id="tag"
-        formControlName="tag"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="listId" class="form-label">Select A list</label>
-      <input
-        type="text"
-        class="form-control"
-        id="listId"
-        formControlName="listId"
-      />
-    </div>
-  </form>
-</div></div>
+<div class="modal-body">
+  <div style=" width: 470px">
+    <form [formGroup]="taskForm">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          formControlName="title"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          formControlName="description"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="tag" class="form-label">Tag</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tag"
+          formControlName="tag"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="listId" class="form-label">List</label>
+        <select
+          class="form-select"
+          id="listId"
+          formControlName="listId">
+          <option *ngFor="let item of currentBoard?.taskLists">{{ item.name }}</option>
+        </select>
+      </div>
+
+      <!--    <div class="mb-3">-->
+      <!--      <label for="listId" class="form-label">Select A list</label>-->
+      <!--      <select id="listId" formControlName="listId">-->
+      <!--        <option *ngFor="let item of currentBoard?.taskLists">{{ item.id }}</option>-->
+      <!--      </select>-->
+
+      <!--    </div>-->
+    </form>
+  </div>
+</div>
 <div class="modal-footer">
   <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
     Close

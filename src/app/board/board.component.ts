@@ -51,6 +51,9 @@ export class BoardComponent implements OnInit {
   }
 
   openModalReal() {
-    this.modalRef = this.modalService.open(ModalComponent)
+    this.modalRef = this.modalService.open(ModalComponent, {
+      data: this.currentBoard,
+    });
+    this.modalRef.component = this.currentBoard
   }
 }
