@@ -4,6 +4,8 @@ import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {MdbModalRef, MdbModalService} from "mdb-angular-ui-kit/modal";
 import {ModalComponent} from "../modal/modal.component";
+import {CdkDragDrop, moveItemInArray, transferArrayItem,} from '@angular/cdk/drag-drop';
+import _ from "lodash";
 
 @Component({
   selector: 'app-board',
@@ -23,6 +25,8 @@ export class BoardComponent implements OnInit {
   @ViewChild('myModal') myModal: ElementRef;
   currentBoard: any;
   a: any;
+  statuses = ["Backlog", "To Do", "In progress", "Designed"]
+  grouped: any
 
   constructor(private boardService: BoardService, private route: ActivatedRoute, private modalService: MdbModalService) {
 
@@ -35,8 +39,43 @@ export class BoardComponent implements OnInit {
       console.log(result)
       if (result) {
         this.currentBoard = result;
+        const grouped = (_.groupBy(this.currentBoard.taskLists, 'name'))
+        this.grouped = grouped;
+        this.statuses.map(i => {
+          this.grouped[i] = this.grouped[i] ? this.grouped[i] : [];
+        })
+        console.log('group', this.grouped)
       }
     })
+  }
+
+  drop(event: CdkDragDrop<any>, status: string) {
+
+    console.log('event: ', event);
+    console.log('list: ', status);
+    console.log('moved element: ', event.previousContainer.data[event.previousIndex]);
+    if (event.previousContainer === event.container) {
+      console.log('ayni container')
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log('farkli container')
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+      const movedItem = event.container.data[event.currentIndex];
+      this.changeStatus(movedItem)
+    }
+  }
+
+  changeStatus(moved: any) {
+    const id = moved.id;
+    this.boardService.updateOrder({
+      listId: 1,
+      id: id
+    }).subscribe()
   }
 
   create(): void {

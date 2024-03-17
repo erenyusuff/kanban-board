@@ -9,6 +9,7 @@ import {httpInterceptorProviders} from "./helpers/http.interceptor";
 import { ModalComponent } from './modal/modal.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MdbModalModule, MdbModalRef} from "mdb-angular-ui-kit/modal";
+import {CdkDrag, CdkDropList, CdkDropListGroup} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import {MdbModalModule, MdbModalRef} from "mdb-angular-ui-kit/modal";
     ReactiveFormsModule,
     MdbModalModule,
     FormsModule,
-    MdbModalModule
+    MdbModalModule,
+    CdkDropList,
+    CdkDrag,
+    CdkDropListGroup
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

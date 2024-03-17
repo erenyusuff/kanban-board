@@ -16,4 +16,8 @@ export class BoardService {
   create(data: any){
     return this.http.post(environment.api + '/cards', data);
   }
+
+  updateOrder(data: any) {
+    return this.http.patch(environment.api + '/cards/update', data);
+  }
 }
