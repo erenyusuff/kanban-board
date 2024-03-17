@@ -5,7 +5,7 @@ body{
 background-color: rgba(38,38,38,1);
 }
 .example-container {
-  width: 400px;
+  width: 260px;
   max-width: 100%;
   margin: 0 25px 25px 0;
   display: inline-block;
@@ -15,7 +15,7 @@ background-color: rgba(38,38,38,1);
 .example-list {
   border: solid 1px #ccc;
   min-height: 600px;
-  background: white;
+  background: rgba(38,38,38,1);
   border-radius: 4px;
   overflow: hidden;
   display: block;
@@ -24,14 +24,14 @@ background-color: rgba(38,38,38,1);
 .example-box {
   padding: 20px 10px;
   border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background: rgba(38,38,38,1);
   font-size: 14px;
 }
 

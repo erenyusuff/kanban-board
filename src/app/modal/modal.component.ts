@@ -10,6 +10,7 @@ import {MdbModalRef} from "mdb-angular-ui-kit/modal";
 })
 export class ModalComponent implements OnInit {
   currentBoard: any | null = null;
+  id: any
   taskForm = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
@@ -23,6 +24,7 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): any {
     this.currentBoard = this.modalRef.component
+    this.id = this.currentBoard.id
     console.log(this.modalRef.component)
   }
   create() {

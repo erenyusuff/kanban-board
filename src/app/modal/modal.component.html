@@ -43,8 +43,9 @@
         <select
           class="form-select"
           id="listId"
-          formControlName="listId">
-          <option *ngFor="let item of currentBoard?.taskLists">{{ item.name }}</option>
+          formControlName="listId"
+        [value]="{id}">
+          <option *ngFor="let item of currentBoard?.taskLists" [selected]="(item.name == 'backlog')">{{ item.name }}</option>
         </select>
       </div>
 

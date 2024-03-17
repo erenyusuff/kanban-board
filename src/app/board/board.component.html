@@ -2,25 +2,28 @@
   <div class="container-xxl">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             (click)="openModalReal()">
-      Modal
+      Create Task
     </button>
     <div class="row" style="display: flex; margin-left: auto; margin-right: auto">
 
 
-      <div style="display: flex;" class="col py-3" *ngIf="grouped" cdkDropListGroup>
-        <div *ngFor="let status of statuses" >
+      <div style="display: flex;" class="col py-3" *ngIf="currentBoard" cdkDropListGroup>
+        <div *ngFor="let item of currentBoard?.taskLists" >
           <div class="example-container">
-            <h2 style="justify-content: center">{{status}}</h2>
+            <h2 style="justify-content: center"><font >{{item?.name}}</font></h2>
+
             <div
               cdkDropList
-              [cdkDropListData]="grouped[status]"
+              [cdkDropListData]="item?.cards"
               class="example-list"
-              (cdkDropListDropped)="drop($event, status);">
-              <div *ngFor="let item of grouped.cards" class="example-box" cdkDrag><font *ngFor="let qwe of item">{{item.title}}</font></div>
+              (cdkDropListDropped)="drop($event, item);">
+              <div class="example-box" cdkDrag><font *ngFor="let card of item?.cards">{{card?.title}}</font></div>
             </div>
+
           </div>
       </div>
       </div>
+
       <div *ngFor="let item of currentBoard?.taskLists" class="card text-white col-md-3 mb-3 mx-2 my-2"
 
            style="max-width: 368px; height: auto; border-radius: 16px;">
