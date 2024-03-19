@@ -1,60 +1,80 @@
-body{
+body.container-fluid {
   background-color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card {
-background-color: rgba(38,38,38,1);
+
+.container-xxl {
+  width: 100%;
 }
+
+.btn-primary {
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col {
+  display: flex;
+}
+
 .example-container {
-  width: 260px;
-  max-width: 100%;
-  margin: 0 25px 25px 0;
-  display: inline-block;
-  vertical-align: top;
+  width: 300px; /* Daha küçük bir genişlik */
+  margin: 0 10px 25px 10px; /* Daha küçük bir kenar boşluğu */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .example-list {
-  border: solid 1px #ccc;
-  min-height: 600px;
-  background: rgba(38,38,38,1);
-  border-radius: 4px;
-  overflow: hidden;
-  display: block;
+  border: none;
+  min-height: 400px; /* Minimum yükseklik 400px */
+  background: rgba(38, 38, 38, 1);
+  border-radius: 8px;
+  overflow: auto;
+  padding: 10px;
 }
 
 .example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
+  width: 280px;
+  padding: 10px;
   color: white;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: rgba(38,38,38,1);
+  background: rgba(38, 38, 38, 1);
   font-size: 14px;
-}
-
-.cdk-drag-preview {
-  box-sizing: border-box;
   border-radius: 4px;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-  0 8px 10px 1px rgba(0, 0, 0, 0.14),
-  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Animasyon daha düzgün olması için */
 }
 
-.cdk-drag-placeholder {
-  opacity: 0;
+.example-box:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: black;
 }
 
-.cdk-drag-animating {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+.card {
+  width: 280px;
+  background-color: rgba(38, 38, 38, 1);
 }
 
-.example-box:last-child {
-  border: none;
+.card-body {
+  padding: 10px;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+.card-title {
+  margin-bottom: 5px;
+  color: white;
+}
+
+.card-text {
+  color: white;
 }

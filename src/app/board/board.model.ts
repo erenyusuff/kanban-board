@@ -4,3 +4,7 @@ export interface Board {
   taskLists: any
   cards: any
 }
+
+export interface List {
+
+}

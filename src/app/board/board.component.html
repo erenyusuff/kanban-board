@@ -1,48 +1,27 @@
-<body class="container-fluid" style="width: 1000px; height: 1020px">
-  <div class="container-xxl">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            (click)="openModalReal()">
-      Create Task
-    </button>
-    <div class="row" style="display: flex; margin-left: auto; margin-right: auto">
-
-
-      <div style="display: flex;" class="col py-3" *ngIf="currentBoard" cdkDropListGroup>
-        <div *ngFor="let item of currentBoard?.taskLists" >
-          <div class="example-container">
-            <h2 style="justify-content: center"><font >{{item?.name}}</font></h2>
-
-            <div
-              cdkDropList
-              [cdkDropListData]="item?.cards"
-              class="example-list"
-              (cdkDropListDropped)="drop($event, item);">
-              <div class="example-box" cdkDrag><font *ngFor="let card of item?.cards">{{card?.title}}</font></div>
+<body class="container-fluid" style="width: 1400px; height: 1020px">
+<div class="container-xxl">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+          (click)="openModalReal()">
+    Create Task
+  </button>
+  <div class="row" style="display: flex; margin-left: auto; margin-right: auto">
+    <div style="display: flex;" class="col py-3" *ngIf="currentBoard" cdkDropListGroup>
+      <div *ngFor="let item of currentBoard?.taskLists" class="example-container" cdkDropList
+           [cdkDropListData]="item.cards" (cdkDropListDropped)="drop($event, item)">
+        <div class="example-list">
+          <h2 style="display: flex; color: white">{{item.name}}</h2>
+          <div class="example-box" *ngFor="let card of item.cards" cdkDrag>
+            <div class="card text-white bg-danger mb-3" style="max-width: 320px;">
+              <div class="card-body">
+                <h5 class="card-title">{{card.title}}</h5>
+                <p class="card-text">{{card.description}}</p>
+              </div>
             </div>
-
-          </div>
-      </div>
-      </div>
-
-      <div *ngFor="let item of currentBoard?.taskLists" class="card text-white col-md-3 mb-3 mx-2 my-2"
-
-           style="max-width: 368px; height: auto; border-radius: 16px;">
-        <div class="card-body">
-          <h5 class="card-title">{{item.name}}</h5>
-          <div *ngFor="let card of item.cards" class="card text-white bg-danger mb-3" style="max-width: 320px;">
-
-
-            <div class="card-body">
-              <h5 class="card-title">{{card.title}}</h5>
-              <p class="card-text">{{card.description}}</p>
-            </div>
-
-
-
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </body>
 
